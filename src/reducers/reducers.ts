@@ -7,6 +7,7 @@ import {
   Role,
   RoleState
 } from "./types";
+import _ from "lodash";
 
 const initialMembersState: MemberState = {
   members: []
@@ -19,6 +20,7 @@ export function memberReducer(
   switch (action.type) {
     case PLUS_MEMBER:
       const newMember: Member = {
+        id: _.uniqueId(),
         isEffective: true,
         name: ""
       };
@@ -41,6 +43,7 @@ export function roleReducer(
   switch (action.type) {
     case PLUS_ROLE:
       const newRole: Role = {
+        id: _.uniqueId(),
         isEffective: true,
         role: ""
       };

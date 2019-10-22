@@ -7,6 +7,7 @@ import Index from "./components/index";
 import Result from "./components/result";
 import { Provider } from "react-redux";
 import configureStore from "./reducers";
+import * as queryString from "querystring";
 
 const store = configureStore();
 
@@ -14,7 +15,15 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route path="/result" component={Result} />
+        <Route
+          path="/result"
+          render={props => (
+            <Result
+              qs={queryString.parse(props.location.search.substr(1))} // ?が入ってしまうのでsubstrで対処
+              resultState={null}
+            />
+          )}
+        />
         <Route path="/" component={Index} />
       </Switch>
     </BrowserRouter>

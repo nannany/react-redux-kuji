@@ -9,8 +9,8 @@ export const Members: FunctionComponent<MembersProps> = ({ members }) => {
   return (
     <div>
       {members.map(member => (
-        <div>
-          <input type="checkbox" checked={member.isEffective} />
+        <div key={member.id}>
+          <input key={member.id} type="checkbox" checked={member.isEffective} />
           <input type={"text"} value={member.name} />
         </div>
       ))}

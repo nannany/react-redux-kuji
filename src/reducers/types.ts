@@ -1,4 +1,5 @@
 export interface Member {
+  id: string;
   isEffective: boolean;
   name: string;
 }
@@ -8,12 +9,23 @@ export interface MemberState {
 }
 
 export interface Role {
+  id: string;
   isEffective: boolean;
   role: string;
 }
 
 export interface RoleState {
   roles: Role[];
+}
+
+export interface Correspond {
+  id: string;
+  member: string;
+  role: string;
+}
+
+export interface ResultState {
+  corresponds: Correspond[];
 }
 
 export const PLUS_MEMBER = "PLUS_MEMBER";
